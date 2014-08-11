@@ -17,6 +17,7 @@ def pow_mod(b, e, n):
     return (pow_mod(b**2 % n, e/2, n) * b**(e%2)) % n
 
 def isprime(n, userand=False, rounds=5):
+    """Miller-Rabin primality test"""
     bases = [2,3,5,7,11]
     if n in bases:
         return True
@@ -59,6 +60,7 @@ def isprime(n, userand=False, rounds=5):
 
 
 def sieve(N):
+    """Sieve of Erastothenes for n <= N"""
     table = range(N+1)
     table[1] = 0
     for i in table:
@@ -74,11 +76,13 @@ def firstnprimes(N):
     shortlist = [2,3,5,7,11]
     if N <= len(shortlist):
         return shortlist[:N]
-    #from Wiki:Prime_counting_function#Inequalities
+    # from Wiki:Prime_counting_function#Inequalities
     upperbound = int(N*(math.log(N)+math.log(math.log(N))))+1
     return sieve(upperbound)[:N]
 
 def factor(n):
+    """Brute force factor.
+    Returns dictionary {p:e} mapping prime factors to their multiplicity."""
     ret_val = {}
     if n == 0:
         return ret_val
@@ -96,7 +100,9 @@ def factor(n):
         p+=1
 
 def factortable(N):
-    'Return list of factor dictionaries for n <= N'
+    """Sieve based factor.
+    Return list of dictionaries {p:e} mapping prime factors to their
+    multiplicity for n <= N."""
     table = range(N+1)
     table[1] = 0
     factors_table = [{} for n in range(N+1)]
