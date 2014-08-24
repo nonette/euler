@@ -8,6 +8,9 @@ logger = logging.getLogger(__name__)
 def drawgrid(N):
     print ('   '.join('|'*(N+1))+'\n').join('---'.join('+'*(N+1))+'\n' for n in range(N+1))
 
+def fact(N):
+    return prod(range(1,N+1))
+
 def prod(r):
     return reduce(operator.mul, r, 1)
 

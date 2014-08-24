@@ -1,5 +1,7 @@
-## Find the value of D le 10**3 with the largest minimal solution in x to
+#  Find the value of D le 10**3 with the largest minimal solution in x to
 #  x**2-D*y**2=1
+#
+# This is Pell's equation.
 
 import logging
 
