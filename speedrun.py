@@ -9,7 +9,7 @@ FILENAME = 'times'
 
 def time(N):
     p = 'p'+str(N).zfill(3)
-    cmd = ['time python -c "import %s; print %s.%s()"' % (p, p, p)]
+    cmd = ['time python -c "import p.%s; print p.%s.%s()"' % (p, p, p)]
     job = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     answer, raw = job.communicate()
     answer = answer.strip()
