@@ -15,11 +15,8 @@ import utils
 
 logger = logging.getLogger(__name__)
 
-def sumdivs(factorization):
-    return utils.prod((p**(e+1)-1)/(p-1) for (p,e) in factorization.items())
-
 def p021(N=10**4):
-    table = [sumdivs(f)-n for (n,f) in enumerate(utils.factortable(N))]
+    table = [utils.sigma(f)-n for (n,f) in enumerate(utils.factortable(N))]
     acc = 0
     for n in range(1,N):
         if 0 < table[n] < N and table[table[n]] == n and table[n] != n:

@@ -125,6 +125,9 @@ def factortable(N):
             multiple_of_i += i
     return factors_table
 
+def sigma(factorization):
+    return prod((p**(e+1)-1)/(p-1) for (p,e) in factorization.items())
+
 def gcd(a,b):
     while b != 0:
         a,b = b, a%b
